@@ -57,4 +57,5 @@ while locdot == None:
     locdot=pag.locateOnScreen('whitedot2.png', region=(1232,37,293,247),confidence=0.9) 
     if not locdot == None: 
         pag.click(random.randint(1345,1350),random.randint(747,755),duration=random.uniform(0.1,0.2),tween=tweentype())
+        pag.click(1345,685,tween=tweentype())
         break
