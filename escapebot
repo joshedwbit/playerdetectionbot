@@ -1,0 +1,60 @@
+import pyautogui as pag
+import random
+import pause
+from PIL import Image
+from Tweeningrand05 import tweentype
+import datetime
+from PIL import ImageEnhance
+from PIL import ImageGrab
+from screengrab4 import screenGrab
+from Tweeningrand05 import tweentype
+
+'''initial screenshot'''
+#whitedot2=ImageGrab.grab(bbox=(1357,163,1363,171))
+#whitedot2.save(r'C:\Users\joshi\Desktop\Coding programmes\VSCODE\OSRSbots\whitedot2.png')
+
+'''open the image for checking'''
+#bif=Image.open(r'C:\Users\joshi\Desktop\Coding programmes\VSCODE\OSRSbots\whitedot2.png')
+#bif.show()
+
+'''bot to locate the white dot in the region, and click once detected'''
+# locatedot=pag.locateOnScreen('whitedot2.png', region=(1232,37,293,247),confidence=0.9)
+# print(locatedot)
+# #pag.moveTo('whitedot2.png')
+# newpoint=pag.center(locatedot) #creates a point at the centre of the image found
+# print(newpoint)
+# newpointx, newpointy=newpoint #denotes the x and y coordinates of this centre point
+# print(newpointx,newpointy)
+# pag.click(newpointx,newpointy) #moves to this new point
+
+'''Bot to continuously run until a white dot is detected, at which point the bot either clicks the white dot,
+or clicks to logout depending on which setting I choose'''
+locdot=pag.locateOnScreen('whitedot2.png', region=(1232,37,293,247),confidence=0.9) 
+if not locdot==None:
+    print(locdot)
+
+while locdot == None:
+    locdot=pag.locateOnScreen('whitedot2.png', region=(1232,37,293,247),confidence=0.9) 
+    #print('not yet')
+    #pause.seconds(0.5)
+    if not locdot == None: 
+        # #print(locdot)
+        # newpoint=pag.center(locdot) #creates a point at the centre of the image found
+        # #print(newpoint)
+        # newpointx, newpointy=newpoint #denotes the x and y coordinates of this centre point
+        # #print(newpointx,newpointy)
+        # pag.click(newpointx,newpointy) #moves to this new point
+
+        #pag.click(1345,752)
+        pag.click(random.randint(1345,1350),random.randint(747,755),duration=random.uniform(0.1,0.2),tween=tweentype())
+        break
+'''Final cut and finished version'''
+locdot=pag.locateOnScreen('whitedot2.png', region=(1232,37,293,247),confidence=0.9) 
+if not locdot==None:
+    print(locdot)
+
+while locdot == None:
+    locdot=pag.locateOnScreen('whitedot2.png', region=(1232,37,293,247),confidence=0.9) 
+    if not locdot == None: 
+        pag.click(random.randint(1345,1350),random.randint(747,755),duration=random.uniform(0.1,0.2),tween=tweentype())
+        break
